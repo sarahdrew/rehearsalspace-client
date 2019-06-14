@@ -1,43 +1,61 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import TokenService from '../services/token-service'
+import { Button, Input } from '../Utils/Utils'
 
-export default class SignIn extends Component {
+export default class LoginForm extends Component {
+    static defaultProps = {
+        onSigninSuccess: () => { }
+    }
+
+    state = { error: null }
+
+    handleSubmitBasicAuth = ev => {
+        console.log(`event: `, ev)
+        ev.preventDefault()
+        const { user_name, password } = ev.target
+
+        TokenService.saveAuthToken(TokenService.makeBasicAuthToken(user_name.value, password.value))
+
+        user_name.value = ''
+        password.value = ''
+        this.props.onSigninSuccess()
+    }
+
     render() {
+        const { error } = this.state
         return (
-            <body>
-                <nav role="navigation">Nav</nav>
-                <main role="main">
-                    <header role="banner">
-                        <h1>RehearsalSpace</h1>
-                        <h2>Independent performers find their space</h2>
-                    </header>
-                    <section>
-                        <header>
-                            <h3>Find a place to rehearse</h3>
-                        </header>
-
-                        <p>RehearsalSpace allows owners to share their space and performers to find it.</p>
-                    </section>
-
-                    <section>
-                        <header>
-                            <h3>Sign in to your account</h3>
-                        </header>
-                        <form class='signin-form'>
-
-                            <div>
-                                <label for="username">Email</label>
-                                <input type="text" name='username' id='username' />
-                            </div>
-                            <div>
-                                <label for="password">Password</label>
-                                <input type="password" name='password' id='password' />
-                            </div>
-                            <button type='submit'>Sign In</button>
-                        </form>
-                    </section>
-                </main>
-                <footer>Footer</footer>
-            </body>
+            <form
+                className='SigninForm'
+                onSubmit={this.handleSubmitBasicAuth}
+            >
+                <div role='alert'>
+                    {error && <p className='red'>{error}</p>}
+                </div>
+                <div className='user_name'>
+                    <label htmlFor='SigninForm__user_name'>
+                        User name
+          </label>
+                    <Input
+                        required
+                        name='user_name'
+                        id='SigninForm__user_name'>
+                    </Input>
+                </div>
+                <div className='password'>
+                    <label htmlFor='SigninForm__password'>
+                        Password
+          </label>
+                    <Input
+                        required
+                        name='password'
+                        type='password'
+                        id='SigninForm__password'>
+                    </Input>
+                </div>
+                <Button type='submit'>
+                    Sign In
+        </Button>
+            </form>
         )
     }
 }

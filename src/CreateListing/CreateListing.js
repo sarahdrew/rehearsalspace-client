@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import config from "../config";
 import ApiContext from "../ApiContext";
+import ListingsForm from '../ListingsForm/ListingsForm';
 
 export default class CreateListing extends Component {
     constructor(props) {
         super(props);
         this.state = {
             city: '',
-            size: 0,
-            key: false
+            size: '',
+            description: ''
         }
     }
 
-    updateListings(city, size, key) {
-        this.setState({ city, size, key })
+    updateListings(city, size, description) {
+        this.setState({ city, size, description })
     }
     static defaultProps = {
         history: {
@@ -22,14 +23,24 @@ export default class CreateListing extends Component {
     };
     static contextType = ApiContext;
 
+
+    addListing = listing => {
+        this.setState({
+            listings: [...this.state.listing, listing]
+        });
+    };
+
     handleSubmit = event => {
+        console.log(`handling the submit`)
         event.preventDefault();
         const listing = {
-            city: event.target["city"].value,
+            location: event.target["location"].value,
             size: event.target["size"].value,
-            key: event.target["key"].value
+            description: event.target["description"].value
         };
-        fetch(`${config.API_ENDPOINT}/listings`, {
+
+        console.log(`config.API_ENDPOINT: `, config.API_ENDPOINT)
+        fetch(`${config.API_ENDPOINT}/api/listings`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(listing)
@@ -38,11 +49,13 @@ export default class CreateListing extends Component {
                 if (!response.ok) {
                     return response.json().then(e => Promise.reject(e));
                 }
+                console.log(`response after fetch: `, response);
+                console.log(`listing variable after fetch: `, listing)
                 return response.json()
             })
             .then(listing => {
                 this.context.addListing(listing);
-                this.props.history.push(`/listings/${listing.id}`)
+                this.props.history.push(`/api/listings/`)
             })
             .catch(error => {
                 console.error({ error })
@@ -53,25 +66,33 @@ export default class CreateListing extends Component {
         return (
             <section className="create-listing">
                 <h1>Offer your space</h1>
-                <div>
-                    <label for="city">City:</label>
-                    <input placeholder='Chicago' type="text" name='city' id='city' />
-                </div>
-                <div>
-                    <label for="size">Size:</label>
-                </div>
-                <div>
-                    <p><input type="radio" name="size" value="1" /> 1 room
-                                    <input type="radio" name="size" value="2" /> 2 rooms
-                                        <input type="radio" name="size" value="3" /> 3+ rooms </p>
-                </div>
-                <div>
-                    <label for="username">Key/passcode needed:</label>
-                    <input type="radio" name='key' id='yes' />Yes
-                                            <input type='radio' name='key' id='no' />No
-            </div>
+                <ListingsForm onSubmit={this.handleSubmit}>
+                    <div className="field">
+                        <label htmlFor="location">Location:</label>
+                        <input placeholder='Chicago'
+                            type="text"
+                            name='location'
+                            id='location'
+                            onChange={event => this.updateListings(event.target.value)} />
+                    </div>
+                    <div>
+                        <label htmlFor="size">Size:</label>
+                        <p><input type="radio" name="size" value="1" /> 1 room
+                                    <input type="radio"
+                                name="size"
+                                value="2"
+                                onChange={event => this.updateListings(event.target.value)} /> 2 rooms
+                                        <input type="radio" name="size" value="3"
+                                onChange={event => this.updateListings(event.target.value)} /> 3+ rooms </p>
+                    </div>
+                    <div>
+                        <label htmlFor="description">Description:</label>
+                        <input type="text" name='description' id='description' placeholder="A gorgeous classroom equipped with chairs, electrical outlets and bathroom down the hall"
+                            onChange={event => this.updateListings(event.target.value)} />
+                    </div>
 
-                <button type='submit'>List my space</button>
+                    <button type='submit'>List my space</button>
+                </ListingsForm>
             </section>
         )
     }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Content from "./Content";
+//import Content from "./Content";
 // import "./Nav.css";
 
 export default class Nav extends Component {
