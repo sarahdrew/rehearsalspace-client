@@ -19,17 +19,15 @@ const ListingApiService = {
                 return responseJson
             })
             .then(listings => {
-                console.log(`listings as responseJson : `, { listings })
-                //console.log(`right before setting state`)
-                //this.setState({ listings })
+
                 return listings;
-                //console.log(`listings as responseJson after set state : `, { listings })
+
 
             })
 
     },
     getListing(listingId) {
-        console.log(`listing-api-srevice listingId: `, listingId)
+        // console.log(`listing-api-srevice listingId: `, listingId)
         return fetch(`${config.API_ENDPOINT}/api/listings/${listingId}`, {
             headers: {
                 'authorization': `basic ${TokenService.getAuthToken()}`
@@ -41,11 +39,11 @@ const ListingApiService = {
                     : res.json()
             )
             .then(responseJson => {
-                console.log(`getListing(listingId) responseJson`, responseJson)
+                // console.log(`getListing(listingId) responseJson`, responseJson)
                 return responseJson
             })
             .then(listing => {
-                console.log(`single listing as responseJson: `, listing)
+                // console.log(`single listing as responseJson: `, listing)
                 return listing
             })
 

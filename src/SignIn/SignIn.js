@@ -10,7 +10,7 @@ export default class LoginForm extends Component {
     state = { error: null }
 
     handleSubmitBasicAuth = ev => {
-        console.log(`event: `, ev)
+
         ev.preventDefault()
         const { user_name, password } = ev.target
 
