@@ -1,21 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { NiceDate } from '../Utils/Utils'
+//import { NiceDate } from '../Utils/Utils'
+import ListingContext from '../contexts/ListingContext';
 
 export default class ListingistItem extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            booked: false,
-        }
-    }
 
-    bookedListing(event) {
-        event.preventDefault();
-        console.log(this)
-        this.setState({ booked: true })
-        this.props.history.push(`/booked-listing/`)
-    }
+    static contextType = ListingContext;
+
+
     render() {
         const { listing } = this.props
         return (
@@ -24,12 +16,9 @@ export default class ListingistItem extends Component {
                     <h2 className='ListingListItem__heading'>
                         {listing.location}
                     </h2>
-                    <p> Number of rooms available for rehearsal: {listing.size}</p>
+                    <p> This space has {listing.size} room(s).</p>
                     <p> Description: {listing.description}</p>
-
-
-
-                    <button className="button-container" onClick={this.bookedListing}>
+                    <button className="button-container" onClick={this.props.bookedListing}>
                         Book it!
          </button>
                 </header>
@@ -41,15 +30,15 @@ export default class ListingistItem extends Component {
 
 
 
-function ListingDate({ listing }) {
-    return (
-        <span className='ListingListItem__date'>
-            <NiceDate
-                date={listing.date_created}
-            />
-        </span>
-    )
-}
+// function ListingDate({ listing }) {
+//     return (
+//         <span className='ListingListItem__date'>
+//             <NiceDate
+//                 date={listing.date_created}
+//             />
+//         </span>
+//     )
+// }
 
 
 

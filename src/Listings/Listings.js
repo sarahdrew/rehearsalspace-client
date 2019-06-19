@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ListingsListContext from '../contexts/ListingsListContext';
+import ListingContext from '../contexts/ListingContext';
 import ListingApiService from '../services/listing-api-service';
 import { Section } from '../Utils/Utils';
 // import ListingPage from '../ListingPage/ListingPage'
@@ -7,7 +7,7 @@ import ListingListItem from '../ListingListItem/ListingListItem'
 
 
 export default class Listings extends Component {
-    static contextType = ListingsListContext
+    static contextType = ListingContext
 
     // bookedListing() {
     //     render() {
@@ -19,16 +19,15 @@ export default class Listings extends Component {
 
 
     componentDidMount() {
-        this.context.clearError()
         ListingApiService.getAllListings()
-            .then(data => { console.log(data); this.context.setListingsList(data); })
-            .catch(this.context.setError)
+            .then(data => { console.log(data); this.context.setListings(data); })
+            .catch(e => console.error(e))
 
     }
 
     renderListings() {
-        const { ListingsList = [] } = this.context
-        return ListingsList.map(listing =>
+        const { listings = [] } = this.context
+        return listings.map(listing =>
             <ListingListItem
                 key={listing.id}
                 listing={listing} />

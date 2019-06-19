@@ -31,7 +31,7 @@ export default class CreateListing extends Component {
     };
 
     handleSubmit = event => {
-        console.log(`handling the submit`)
+        // console.log(`handling the submit`)
         event.preventDefault();
         const listing = {
             location: event.target["location"].value,
@@ -49,7 +49,7 @@ export default class CreateListing extends Component {
                 if (!response.ok) {
                     return response.json().then(e => Promise.reject(e));
                 }
-                console.log(`response after fetch: `, response);
+                //      console.log(`response after fetch: `, response);
                 console.log(`listing variable after fetch: `, listing)
                 return response.json()
             })

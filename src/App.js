@@ -7,13 +7,12 @@ import Listings from "./Listings/Listings";
 import RegistrationForm from './RegistrationForm/RegistrationForm';
 import Reserve from './Reserve/Reserve';
 import SignIn from './SignIn/SignIn';
-//import ApiContext from "../ApiContext";
 import config from "./config";
 import ListingPage from './ListingPage/ListingPage'
 //import ListingListItem from './ListingListItem/ListingListItem'
-import ListingsListProvider from './contexts/ListingsListProvider';
+import ListingContext from './contexts/ListingContext';
 import BookedListing from './BookedListing/BookedListing';
-
+import './App.css'
 
 
 export default class App extends Component {
@@ -21,19 +20,33 @@ export default class App extends Component {
     super();
     this.state = {
       listings: [],
-
+      listing: '',
+      booked: false,
+      setListing: (listing) => {
+        this.setState({ listing: listing });
+      },
+      setListings: (listings) => {
+        this.setState({ listings: listings })
+      },
+      bookedListing: (listing) => {
+        this.setState({ booked: true })
+      }
     }
+
+
   }
 
   compononentDidMount() {
     this.loadData();
-    this.backHome();
+
   }
 
-  backHome() {
-    console.log(`back home pushed`)
-    console.log(`booked listing props`, this.props)
-    this.props.history.push(`/api/listings/`)
+  bookedListing(event) {
+    console.log(`booked it was clicked, yeehaw mama!`)
+    event.preventDefault();
+    console.log(`this.props in Listing List Item`, this.props)
+    this.props.setState({ booked: true })
+    this.props.history.push(`/booked-listing/`)
   }
 
 
@@ -45,11 +58,11 @@ export default class App extends Component {
       })
       .then(res => res.json())
       .then(responseJson => {
-        console.log(`in App.js responseJson to put on the page: `, responseJson)
+        // console.log(`in App.js responseJson to put on the page: `, responseJson)
         return responseJson
       })
       .then(responseJson => {
-        console.log(`App response json in listings: `, { listings: responseJson })
+        // console.log(`App response json in listings: `, { listings: responseJson })
         this.setState({ listings: responseJson })
 
       })
@@ -63,23 +76,25 @@ export default class App extends Component {
   render() {
     return (
       <div className="App" >
-        <ListingsListProvider>
+
+        <ListingContext.Provider value={this.state} >
           <nav><Nav /></nav>
           <main className='App'>
 
             <Route exact path='/' component={Listings} />
             <Route exact path='/listings' component={Listings} />
-            {/* <Route path={'/listings/:listingId'} component={ListingPage} /> */}
+            <Route path={'/listings/:listingId'} component={ListingPage} />
             <Route path='/create-listing' component={CreateListing} />
             <Route path='/registration-form' component={RegistrationForm} />
             <Route path='/reserve' component={Reserve} />
             <Route path='/sign-in' component={SignIn} />
-            <Route path='/bookedListing' component={BookedListing} />
+            <Route path='/booked-listing' component={BookedListing} />
 
 
 
           </main>
-        </ListingsListProvider>
+        </ListingContext.Provider>
+
       </div>
 
     );

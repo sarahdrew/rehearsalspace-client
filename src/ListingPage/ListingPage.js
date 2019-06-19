@@ -1,49 +1,56 @@
 import React, { Component } from 'react';
 import ListingContext from '../contexts/ListingContext';
 import ListingApiService from '../services/listing-api-service';
-import { NiceDate, Hyph, Section } from '../Utils/Utils';
+import { Section } from '../Utils/Utils';
 
 export default class ListingPage extends Component {
     static defaultProps = {
         match: { params: {} },
     }
 
+
     static contextType = ListingContext
 
     componentDidMount() {
         const { listingId } = this.props.match.params
-        this.context.clearError()
         console.log(`componentdidmount listingId: `, listingId)
         ListingApiService.getListing(listingId)
-            .then(this.context.setListing)
-            .catch(this.context.setError)
+            .then(listing => this.context.setListing(listing))
+            .catch(error => console.error(error))
     }
 
-    componentWillUnmount() {
-        this.context.clearListing()
-    }
+    // componentWillUnmount() {
+    //     this.context.clearListing()
+    // }
 
     renderListing() {
         const { listing } = this.context
+        console.log(`renderListing this context`, this.context)
         return <>
             <h2>{listing.location}</h2>
-            <p>{listing.size}
-                <Hyph />
+            <p>This space has {listing.size} room(s).</p>
+            <p>Description of the space:
                 <ListingDescription listing={listing} />
-                <NiceDate date={listing.date_created} />
+
             </p>
+            <button className="button-container" onClick={this.bookedListing}>
+                Book it!
+         </button>
         </>
 
     }
-
     render() {
-        const { error, listing } = this.context
+        console.log(`listingPage this: `, this);
+        console.log(`listingPage context: `, this.context)
+        const { listing } = this.context
+
         let content
-        if (error) {
-            content = (error.error === `Listing doesn't exist`)
-                ? <p> Listing not found</p>
-                : <p>There was an error </p>
-        } else if (!listing.id) {
+        // if (error) {
+        //     content = (error.error === `Listing doesn't exist`)
+        //         ? <p> Listing not found</p>
+        //         : <p>There was an error </p>
+        // } 
+        if (listing === undefined) {
             content = <div className='loading' />
         } else {
             content = this.renderListing()
