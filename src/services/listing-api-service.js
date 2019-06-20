@@ -1,14 +1,11 @@
 import TokenService from '../services/token-service';
 import config from '../config'
+import { get } from 'https';
 
 
 const ListingApiService = {
     getAllListings() {
-        return fetch(`${config.API_ENDPOINT}/api/listings`, {
-            headers: {
-
-            },
-        })
+        return fetch(`${config.API_ENDPOINT}/api/listings`)
             .then(res =>
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))

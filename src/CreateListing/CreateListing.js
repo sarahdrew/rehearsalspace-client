@@ -42,15 +42,16 @@ export default class CreateListing extends Component {
         console.log(`config.API_ENDPOINT: `, config.API_ENDPOINT)
         fetch(`${config.API_ENDPOINT}/api/listings`, {
             method: "POST",
-            headers: { "content-type": "application/json" },
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify(listing)
         })
             .then(response => {
                 if (!response.ok) {
                     return response.json().then(e => Promise.reject(e));
                 }
-                //      console.log(`response after fetch: `, response);
-                console.log(`listing variable after fetch: `, listing)
+
                 return response.json()
             })
             .then(listing => {

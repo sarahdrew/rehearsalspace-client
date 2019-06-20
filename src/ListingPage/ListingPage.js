@@ -13,7 +13,7 @@ export default class ListingPage extends Component {
 
     componentDidMount() {
         const { listingId } = this.props.match.params
-        console.log(`componentdidmount listingId: `, listingId)
+
         ListingApiService.getListing(listingId)
             .then(listing => this.context.setListing(listing))
             .catch(error => console.error(error))
@@ -25,7 +25,7 @@ export default class ListingPage extends Component {
 
     renderListing() {
         const { listing } = this.context
-        console.log(`renderListing this context`, this.context)
+
         return <>
             <h2>{listing.location}</h2>
             <p>This space has {listing.size} room(s).</p>
@@ -33,15 +33,12 @@ export default class ListingPage extends Component {
                 <ListingDescription listing={listing} />
 
             </p>
-            <button className="button-container" onClick={this.bookedListing}>
-                Book it!
-         </button>
+
         </>
 
     }
     render() {
-        console.log(`listingPage this: `, this);
-        console.log(`listingPage context: `, this.context)
+
         const { listing } = this.context
 
         let content

@@ -23,7 +23,7 @@ export class ListingProvider extends Component {
     }
 
     setListing = listing => {
-        console.log(`testing listing setListing `)
+        // console.log(`testing listing setListing `)
         this.setState({ listing })
     }
 

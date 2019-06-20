@@ -18,9 +18,7 @@ export default class ListingistItem extends Component {
                     </h2>
                     <p> This space has {listing.size} room(s).</p>
                     <p> Description: {listing.description}</p>
-                    <button className="button-container" onClick={this.props.bookedListing}>
-                        Book it!
-         </button>
+
                 </header>
 
             </Link>

@@ -8,7 +8,7 @@ export default class ListingsListProvider extends Component {
     };
 
     setListingsList = ListingsList => {
-        console.log('testing listingslist')
+
         this.setState({ ListingsList })
     }
 

@@ -42,9 +42,9 @@ export default class App extends Component {
   }
 
   bookedListing(event) {
-    console.log(`booked it was clicked, yeehaw mama!`)
+    //console.log(`booked it was clicked, yeehaw mama!`)
     event.preventDefault();
-    console.log(`this.props in Listing List Item`, this.props)
+    // console.log(`this.props in Listing List Item`, this.props)
     this.props.setState({ booked: true })
     this.props.history.push(`/booked-listing/`)
   }

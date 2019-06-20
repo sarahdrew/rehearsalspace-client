@@ -12,8 +12,7 @@ export default class RegistrationForm extends Component {
     event.preventDefault()
     const { full_name, user_name, password } = event.target
 
-    console.log('registration form submitted')
-    console.log(`full name username and pass: `, { full_name, user_name, password })
+
 
     full_name.value = ''
     user_name.value = ''
