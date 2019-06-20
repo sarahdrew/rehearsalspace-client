@@ -36,11 +36,16 @@ export default class Listings extends Component {
     render() {
         const { error } = this.context
         return (
-            <Section list className='ListingsListPage'>
-                {error ? <p> There was an error, try again</p>
-                    : this.renderListings()}
+            <>
+                <h2>RehearsalSpace Listings</h2>
+                <h3>Find a space in your city to use for rehearsal!</h3>
+                <p>RehearsalSpace is a site for independent performers to find spaces in their city to practice their craft.</p>
+                <Section list className='ListingsListPage'>
+                    {error ? <p> There was an error, try again</p>
+                        : this.renderListings()}
 
-            </Section>
+                </Section>
+            </>
 
         )
     }
