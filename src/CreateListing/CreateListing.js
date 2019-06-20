@@ -56,7 +56,7 @@ export default class CreateListing extends Component {
             })
             .then(listing => {
                 this.context.addListing(listing);
-                this.props.history.push(`/api/listings/`)
+                this.props.history.push(`/listings/${listing.id}`)
             })
             .catch(error => {
                 console.error({ error })
