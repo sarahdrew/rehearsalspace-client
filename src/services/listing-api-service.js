@@ -1,6 +1,5 @@
 import TokenService from '../services/token-service';
 import config from '../config'
-import { get } from 'https';
 
 
 const ListingApiService = {

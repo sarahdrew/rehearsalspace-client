@@ -7,16 +7,17 @@ import ListingListItem from '../ListingListItem/ListingListItem'
 
 
 export default class Listings extends Component {
+
+    static defaultProps = {
+        onDeleteNotes: () => { }
+    }
+
     static contextType = ListingContext
 
-    // bookedListing() {
-    //     render() {
-    //         return
-    //         <p>You've booked it</p>
-    //     }
-    // }
-
-
+    handleClickDelete = e => {
+        e.preventDefault();
+        const listingId = this.props.id;
+    }
 
     componentDidMount() {
         ListingApiService.getAllListings()
@@ -24,6 +25,9 @@ export default class Listings extends Component {
             .catch(e => console.error(e))
 
     }
+
+
+
 
     renderListings() {
         const { listings = [] } = this.context
@@ -33,6 +37,8 @@ export default class Listings extends Component {
                 listing={listing} />
         )
     }
+
+
     render() {
         const { error } = this.context
         return (

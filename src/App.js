@@ -41,6 +41,7 @@ export default class App extends Component {
 
   }
 
+
   bookedListing(event) {
     //console.log(`booked it was clicked, yeehaw mama!`)
     event.preventDefault();
@@ -72,6 +73,11 @@ export default class App extends Component {
       });
   }
 
+  handleDeleteListing = listingId => {
+    this.setState({
+      listings: this.state.listings.filter(listing => listing.id !== listingId)
+    })
+  }
 
   render() {
     return (

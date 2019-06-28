@@ -9,13 +9,35 @@ export default class CreateListing extends Component {
         this.state = {
             city: '',
             size: '',
-            description: ''
+            description: '',
+            outlets: false,
+            microphone: false,
+            stage: false,
+            bathroom: false,
+            open: false
         }
     }
 
     updateListings(city, size, description) {
         this.setState({ city, size, description })
     }
+    // toggleOutlets(outlets) {
+    //     this.setState({ outlets: true })
+    // }
+    // toggleMicrophone(microphone) {
+    //     this.setState({ microphone: true })
+    // }
+    // toggleStage(stage) {
+    //     this.setState({ stage: true })
+    // }
+    // toggleBathroom(bathroom) {
+    //     this.setState({ bathroom: true })
+    // }
+    // toggleOpen(open) {
+    //     this.setState({ open: true })
+    // }
+
+
     static defaultProps = {
         history: {
             push: () => { }
@@ -25,18 +47,26 @@ export default class CreateListing extends Component {
 
 
     addListing = listing => {
+        console.log(listing)
         this.setState({
             listings: [...this.state.listing, listing]
         });
     };
 
     handleSubmit = event => {
-        // console.log(`handling the submit`)
+        console.log(`handling the submit`)
         event.preventDefault();
         const listing = {
             location: event.target["location"].value,
             size: event.target["size"].value,
-            description: event.target["description"].value
+            description: event.target["description"].value,
+            outlets: event.target.outlets.checked,
+            microphone: event.target.microphone.checked,
+            stage: event.target.stage.checked,
+            bathroom: event.target.bathroom.checked,
+            open: event.target.open.checked,
+
+
         };
 
         console.log(`config.API_ENDPOINT: `, config.API_ENDPOINT)
@@ -90,6 +120,17 @@ export default class CreateListing extends Component {
                         <label htmlFor="description">Description:</label>
                         <input type="text" name='description' id='description' placeholder="A gorgeous classroom equipped with chairs, electrical outlets and bathroom down the hall"
                             onChange={event => this.updateListings(event.target.value)} />
+                    </div>
+                    <div>
+
+                        <label htmlFor="amenities">Amenities:</label>
+                        <p><input type='checkbox' name='outlets' /> outlets</p>
+                        <p><input type='checkbox' name='microphone' /> microphone </p>
+                        <p><input type='checkbox' name='stage' />stage</p>
+                        <p><input type='checkbox' name='bathroom' />bathroom</p>
+                        <p><input type='checkbox' name='open' />open past 8pm</p>
+
+
                     </div>
 
                     <button type='submit'>List my space</button>
