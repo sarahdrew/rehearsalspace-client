@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import config from "../config";
 import ApiContext from "../ApiContext";
 import ListingsForm from '../ListingsForm/ListingsForm';
+import TokenService from '../services/token-service';
 
 export default class CreateListing extends Component {
     constructor(props) {
@@ -73,7 +74,8 @@ export default class CreateListing extends Component {
         fetch(`${config.API_ENDPOINT}/api/listings`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Authorization': `bearer ${TokenService.getAuthToken()}`
             },
             body: JSON.stringify(listing)
         })
