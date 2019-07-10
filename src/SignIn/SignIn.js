@@ -13,6 +13,7 @@ export default class LoginForm extends Component {
     handleSubmitBasicAuth = ev => {
         ev.preventDefault()
         const { user_name, password } = ev.target
+        console.log(`handlesubmitbasicauth reached past ev.preventDefault`)
 
         //TokenService.saveAuthToken(TokenService.makeBasicAuthToken(user_name.value, password.value))
         AuthApiService.postLogin({
@@ -20,9 +21,11 @@ export default class LoginForm extends Component {
             password: password.value
         })
             .then(user => {
+                console.log(`got to the then in handleSubmitBasicAuth`);
                 user_name.value = ''
                 password.value = ''
                 this.props.onSigninSuccess()
+                this.props.history.push(`/signed-in`)
             })
             .catch(res => {
                 this.setState({ error: res.error })
@@ -64,7 +67,13 @@ export default class LoginForm extends Component {
                 <Button type='submit'>
                     Sign In
         </Button>
+                <p>For a demo, use the following log in:</p>
+                <p>User name: demo</p>
+                <p>Password: Demo123!</p>
             </form>
+
+
+
         )
     }
 }

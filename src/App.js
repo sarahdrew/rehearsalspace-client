@@ -12,6 +12,7 @@ import ListingPage from './ListingPage/ListingPage'
 //import ListingListItem from './ListingListItem/ListingListItem'
 import ListingContext from './contexts/ListingContext';
 import BookedListing from './BookedListing/BookedListing';
+import SignedIn from './SignedIn/SignedIn'
 import './App.css'
 
 
@@ -95,6 +96,7 @@ export default class App extends Component {
             <Route path='/reserve' component={Reserve} />
             <Route path='/sign-in' component={SignIn} />
             <Route path='/booked-listing' component={BookedListing} />
+            <Route path='/signed-in' component={SignedIn} />
 
 
 
