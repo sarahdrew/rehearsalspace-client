@@ -33,6 +33,7 @@ export default class ListingPage extends Component {
                 <ListingDescription listing={listing} />
 
             </p>
+            <p>Amenities of the space: {listing.amenities}</p>
 
         </>
 

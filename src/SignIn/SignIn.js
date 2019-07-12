@@ -15,12 +15,14 @@ export default class LoginForm extends Component {
         const { user_name, password } = ev.target
         console.log(`handlesubmitbasicauth reached past ev.preventDefault`)
 
-        //TokenService.saveAuthToken(TokenService.makeBasicAuthToken(user_name.value, password.value))
+        // TokenService.saveAuthToken(TokenService.makeBasicAuthToken(user_name.value, password.value))
+
         AuthApiService.postLogin({
             user_name: user_name.value,
             password: password.value
         })
             .then(user => {
+
                 console.log(`got to the then in handleSubmitBasicAuth`);
                 user_name.value = ''
                 password.value = ''

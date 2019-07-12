@@ -18,6 +18,7 @@ export default class ListingistItem extends Component {
                     </h2>
                     <p> This space has {listing.size} room(s).</p>
                     <p> Description: {listing.description}</p>
+                    <p>Amenities: {listing.amenities}</p>
 
                 </header>
 

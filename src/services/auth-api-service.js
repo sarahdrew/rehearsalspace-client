@@ -26,20 +26,23 @@ const AuthApiService = {
             body: JSON.stringify({ user_name, password }),
         })
             .then(res =>
-                console.log(`res in postLogin`, res)
-                    (!res.ok)
+                (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
             )
             .then(res => {
 
-                // TokenService.saveAuthToken(res.authToken)
+                console.log(res.authToken)
+                TokenService.saveAuthToken(res.authToken)
 
                 // TokenService.queueCallbackBeforeExpiry(() => {
                 //     AuthApiService.postRefreshToken()
                 // })
                 console.log(`this is response in postLogin after `, res)
                 return res
+            })
+            .catch(err => {
+                console.log(err)
             })
     },
     postRefreshToken() {

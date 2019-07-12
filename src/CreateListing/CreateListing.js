@@ -61,11 +61,13 @@ export default class CreateListing extends Component {
             location: event.target["location"].value,
             size: event.target["size"].value,
             description: event.target["description"].value,
-            outlets: event.target.outlets.checked,
-            microphone: event.target.microphone.checked,
-            stage: event.target.stage.checked,
-            bathroom: event.target.bathroom.checked,
-            open: event.target.open.checked,
+            amenities: {
+                outlets: event.target.outlets.checked,
+                microphone: event.target.microphone.checked,
+                stage: event.target.stage.checked,
+                bathroom: event.target.bathroom.checked,
+                open: event.target.open.checked
+            }
 
 
         };
