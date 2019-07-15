@@ -22,24 +22,14 @@ export default class App extends Component {
     this.state = {
       listings: [],
       listing: '',
-      booked: false,
       setListing: (listing) => {
         this.setState({ listing: listing });
       },
       setListings: (listings) => {
         this.setState({ listings: listings })
       },
-      bookedListing: (listing) => {
-        this.setState({ booked: true })
-      }
+
     }
-
-
-  }
-
-  compononentDidMount() {
-    this.loadData();
-
   }
 
 
@@ -51,29 +41,6 @@ export default class App extends Component {
     this.props.history.push(`/booked-listing/`)
   }
 
-
-  loadData() {
-    fetch(`${config.API_ENDPOINT}/listings`)
-      .then(res => {
-
-        return res;
-      })
-      .then(res => res.json())
-      .then(responseJson => {
-        // console.log(`in App.js responseJson to put on the page: `, responseJson)
-        return responseJson
-      })
-      .then(responseJson => {
-        // console.log(`App response json in listings: `, { listings: responseJson })
-        this.setState({ listings: responseJson })
-
-      })
-
-      .catch(error => {
-        console.error({ error });
-      });
-  }
-
   handleDeleteListing = listingId => {
     this.setState({
       listings: this.state.listings.filter(listing => listing.id !== listingId)
@@ -81,6 +48,8 @@ export default class App extends Component {
   }
 
   render() {
+
+
     return (
       <div className="App" >
 
@@ -104,8 +73,9 @@ export default class App extends Component {
         </ListingContext.Provider>
 
       </div>
+    )
 
-    );
+
   }
 
 }

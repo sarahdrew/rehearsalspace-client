@@ -101,6 +101,7 @@ export default class CreateListing extends Component {
         return (
             <section className="create-listing">
                 <h1>Offer your space</h1>
+                <p>You can create your listing as a signed in user. Enter in your information on your space below and see if it matches the needs of a performer in your communitiy!</p>
                 <ListingsForm onSubmit={this.handleSubmit}>
                     <div className="field">
                         <label htmlFor="location">Location:</label>

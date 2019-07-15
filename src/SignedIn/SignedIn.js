@@ -6,9 +6,9 @@ export default class SignedIn extends Component {
         return (
 
             <>
-                <Link to="/">Home</Link> |
-                <Link to="/create-listing"> Create Listing </Link>
                 <h2>Successfully signed in!</h2>
+                <Link to="/">Check out rehearsal spaces</Link> |
+                <Link to="/create-listing"> Offer up your rehearsal space by creating a listing </Link>
 
             </>
         )
