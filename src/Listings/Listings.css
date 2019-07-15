@@ -1,11 +1,4 @@
-.ListingsListPage {
-    list-style-type: none;
-    margin: 0;
-    padding: 10px;
-  }
-  
-  .button-container:hover {
-    max-width: 380px;
-    margin: 0 10px;
-  }
+h3, p {
+background-color: rgb(185, 218, 185)
+}
  

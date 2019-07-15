@@ -5,6 +5,7 @@ import { Section } from '../Utils/Utils';
 // import ListingPage from '../ListingPage/ListingPage'
 import LoadingPage from '../LoadingPage/LoadingPage';
 import ListingListItem from '../ListingListItem/ListingListItem'
+import './Listings.css'
 
 
 export default class Listings extends Component {
@@ -52,14 +53,18 @@ export default class Listings extends Component {
         return (
             this.state.loading ? <LoadingPage /> :
                 <>
-                    <h2>RehearsalSpace Listings</h2>
-                    <h3>Find a space in your city to use for rehearsal!</h3>
-                    <p>RehearsalSpace is a site for independent performers to find spaces in their city to practice their craft.</p>
-                    <Section list className='ListingsListPage'>
-                        {error ? <p> There was an error, try again</p>
-                            : this.renderListings()}
+                    <div className="explanation">
+                        <h2>RehearsalSpace Listings</h2>
+                        <h3>Find a space in your city to use for rehearsal!</h3>
+                        <p>RehearsalSpace is a site for independent performers to find spaces in their city to practice their craft.</p>
+                    </div>
+                    <div>
+                        <Section list className='ListingsListPage'>
+                            {error ? <p> There was an error, try again</p>
+                                : this.renderListings()}
 
-                    </Section>
+                        </Section>
+                    </div>
                 </>
 
         )
