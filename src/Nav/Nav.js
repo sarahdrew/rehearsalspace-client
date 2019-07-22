@@ -7,7 +7,7 @@ export default class Nav extends Component {
     render() {
         return (
 
-            localStorage.getItem('tokenKey') ? <>
+            <>
                 <div className="Nav">
                     <img src={require('../small-microphone.png')} alt="rehearsalspae logo" />
                     <div className="nav-name">
@@ -20,16 +20,9 @@ export default class Nav extends Component {
 
                 </div>
             </>
-                :
-                <>
-                    <div className="Nav">
-                        <img src={require('../zoomed-in-icon.png')} alt="rehearsalspae logo" />
-                        <div className="links"><Link to="/create-listing">Create Listing</Link> |
-                            <Link to="/">Home</Link>
-                        </div>
-                    </div>
 
-                </>
+
+
 
         );
     }

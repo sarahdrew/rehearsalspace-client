@@ -16,28 +16,14 @@ export default class CreateListing extends Component {
             microphone: false,
             stage: false,
             bathroom: false,
-            open: false
+
         }
     }
 
     updateListings(city, size, description) {
         this.setState({ city, size, description })
     }
-    // toggleOutlets(outlets) {
-    //     this.setState({ outlets: true })
-    // }
-    // toggleMicrophone(microphone) {
-    //     this.setState({ microphone: true })
-    // }
-    // toggleStage(stage) {
-    //     this.setState({ stage: true })
-    // }
-    // toggleBathroom(bathroom) {
-    //     this.setState({ bathroom: true })
-    // }
-    // toggleOpen(open) {
-    //     this.setState({ open: true })
-    // }
+
 
 
     static defaultProps = {
@@ -67,7 +53,7 @@ export default class CreateListing extends Component {
                 microphone: event.target.microphone.checked,
                 stage: event.target.stage.checked,
                 bathroom: event.target.bathroom.checked,
-                open: event.target.open.checked
+
             }
 
 
