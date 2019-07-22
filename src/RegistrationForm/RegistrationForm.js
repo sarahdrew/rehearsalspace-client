@@ -1,54 +1,97 @@
 import React, { Component } from 'react'
-
+import { Button, Input, Required } from '../Utils/Utils';
+import AuthApiService from '../../src/services/auth-api-service';
+import './RegistrationForm.css'
 
 export default class RegistrationForm extends Component {
+  static defaultProps = {
+    onRegistrationSuccess: () => { }
+  }
 
+  state = { error: null }
+
+  handleSubmit = event => {
+    event.preventDefault()
+    const { full_name, user_name, password } = event.target
+
+    this.setState({ error: null })
+    AuthApiService.postUser({
+      user_name: user_name.value,
+      password: password.value,
+      full_name: full_name.value,
+    })
+      .then(user => {
+        full_name.value = ''
+        user_name.value = ''
+        password.value = ''
+        this.props.onRegistrationSuccess()
+      })
+      .catch(res => {
+        this.setState({ error: res.error })
+      })
+
+
+  }
 
   render() {
+    const { error } = this.state
     return (
-      <body>
-        <nav role="navigation">Nav</nav>
-        <main role="main">
-          <header role="banner">
-            <h1>RehearsalSpace</h1>
-            <h2>Independent performers find their space</h2>
-          </header>
-          <section>
-            <header>
-              <h3>Find a place to rehearse</h3>
-            </header>
+      <>
+        <div className="headline">
+          <h3>Register for an account</h3>
+        </div>
+        <div className="total-registration-form">
 
-            <p>RehearsalSpace allows owners to share their space and performers to find it.</p>
-          </section>
+          <div className="icon-image">
+            <img src={require('../microphone-icon.png')} alt="rehearsalspae logo" />
+          </div>
+          <form
+            className='RegistrationForm'
+            onSubmit={this.handleSubmit}
+          >
 
-          <section>
-            <header>
-              <h3>Sign up to find your space</h3>
-            </header>
-            <form class='signup-form'>
-              <div>
-                <label for="first-name">First name</label>
-                <input placeholder='First Name' type="text" name='first-name' id='first-name' />
-              </div>
-              <div>
-                <label for="last-name">Last name</label>
-                <input type="text" name='last-name' id='last-name' placeholder='Last Name' />
-              </div>
-              <div>
-                <label for="username">Email</label>
-                <input type="text" name='username' id='username' />
-              </div>
-              <div>
-                <label for="password">Password</label>
-                <input type="password" name='password' id='password' />
-              </div>
-              <button type='submit'>Sign Up</button>
-            </form>
-          </section>
-        </main>
-        <footer>Footer</footer>
-      </body>
-
+            <div role='alert'>
+              {error && <p className='red'>{error}</p>}
+            </div>
+            <div className='full_name'>
+              <label htmlFor='RegistrationForm__full_name'>
+                Full name <Required />
+              </label>
+              <Input
+                name='full_name'
+                type='text'
+                required
+                id='RegistrationForm__full_name'>
+              </Input>
+            </div>
+            <div className='user_name'>
+              <label htmlFor='RegistrationForm__user_name'>
+                User name <Required />
+              </label>
+              <Input
+                name='user_name'
+                type='text'
+                required
+                id='RegistrationForm__user_name'>
+              </Input>
+            </div>
+            <div className='password'>
+              <label htmlFor='RegistrationForm__password'>
+                Password <Required />
+              </label>
+              <Input
+                name='password'
+                type='password'
+                required
+                id='RegistrationForm__password'>
+              </Input>
+            </div>
+            <Button type='submit'>
+              Register
+        </Button>
+          </form>
+        </div>
+      </>
     )
   }
 }
