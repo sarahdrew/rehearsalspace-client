@@ -3,6 +3,7 @@ import config from "../config";
 import ApiContext from "../ApiContext";
 import ListingsForm from '../ListingsForm/ListingsForm';
 import TokenService from '../services/token-service';
+import './CreateListing.css';
 
 export default class CreateListing extends Component {
     constructor(props) {
@@ -111,7 +112,7 @@ export default class CreateListing extends Component {
                             id='location'
                             onChange={event => this.updateListings(event.target.value)} />
                     </div>
-                    <div>
+                    <div className="field">
                         <label htmlFor="size">Size:</label>
                         <p><input type="radio" name="size" value="1" /> 1 room
                                     <input type="radio"
@@ -121,19 +122,19 @@ export default class CreateListing extends Component {
                                         <input type="radio" name="size" value="3"
                                 onChange={event => this.updateListings(event.target.value)} /> 3+ rooms </p>
                     </div>
-                    <div>
+                    <div className="field">
                         <label htmlFor="description">Description:</label>
                         <input type="text" name='description' id='description' placeholder="A gorgeous classroom equipped with chairs, electrical outlets and bathroom down the hall"
                             onChange={event => this.updateListings(event.target.value)} />
                     </div>
-                    <div>
+                    <div className="amenities-list">
 
                         <label htmlFor="amenities">Amenities:</label>
-                        <p><input type='checkbox' name='outlets' /> outlets</p>
-                        <p><input type='checkbox' name='microphone' /> microphone </p>
-                        <p><input type='checkbox' name='stage' />stage</p>
-                        <p><input type='checkbox' name='bathroom' />bathroom</p>
-                        <p><input type='checkbox' name='open' />open past 8pm</p>
+                        <input type='checkbox' name='outlets' /> outlets
+                        <input type='checkbox' name='microphone' /> microphone
+                        <input type='checkbox' name='stage' />stage
+                        <input type='checkbox' name='bathroom' />bathroom
+
 
 
                     </div>

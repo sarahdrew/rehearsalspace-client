@@ -1,4 +1,26 @@
-h3, p {
-background-color: rgb(185, 218, 185)
+.mainpage-icon{
+    width: 60%;
+    text-align: center;
 }
- 
+
+.listing-item {
+    margin: -8px;
+    border-radius: 2px;
+}
+
+.listing-content{
+    margin-top: -38px;
+    margin-left: 10px;
+}
+
+.total-listing-item{
+    outline: 6px outset #511bb8;
+    outline-offset: -3px;
+    /* border-radius: 2px; */
+    padding: 10px;
+    margin: 10px;
+}
+
+.listing-page{
+    margin: 10px;
+}

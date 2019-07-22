@@ -11,18 +11,27 @@ export default class ListingistItem extends Component {
     render() {
         const { listing } = this.props
         return (
-            <Link to={`/listings/${listing.id}`} className='ListingListItem'>
-                <header className='ListingListItem__header'>
-                    <h2 className='ListingListItem__heading'>
-                        {listing.location}
-                    </h2>
-                    <p> This space has {listing.size} room(s).</p>
-                    <p> Description: {listing.description}</p>
-                    <p>Amenities: {listing.amenities}</p>
+            <div className="total-listing-item">
+                <Link to={`/listings/${listing.id}`} className='ListingListItem'>
+                    <div className="listing-content"><header className='ListingListItem__header'>
+                        <h2 className='ListingListItem__heading'>
+                            {listing.location}
+                        </h2>
+                    </header>
+                        <div className="listing-item">
+                            <p> This space has {listing.size} room(s).</p>
+                            <p><b>Description:</b>  {listing.description}</p>
+                            <p><b>Amenities:</b> {listing.amenities}</p>
 
-                </header>
+                        </div>
 
-            </Link>
+                    </div>
+
+
+
+
+                </Link>
+            </div>
         )
     }
 }

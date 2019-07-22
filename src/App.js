@@ -54,6 +54,12 @@ export default class App extends Component {
       <div className="App" >
 
         <ListingContext.Provider value={this.state} >
+          <head>
+            <style>
+              @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+</style>
+
+          </head>
           <nav><Nav /></nav>
           <main className='App'>
 

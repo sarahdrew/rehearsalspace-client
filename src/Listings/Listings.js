@@ -53,10 +53,14 @@ export default class Listings extends Component {
         return (
             this.state.loading ? <LoadingPage /> :
                 <>
+
                     <div className="explanation">
-                        <h2>RehearsalSpace Listings</h2>
-                        <h3>Find a space in your city to use for rehearsal!</h3>
-                        <p>RehearsalSpace is a site for independent performers to find spaces in their city to practice their craft.</p>
+                        <div className="explanation-wrapper">
+                            <h2>REHEARSALSPACE</h2>
+                            <h3>Find a space in your city to use for rehearsal!</h3>
+                            <p>RehearsalSpace is a site for independent performers to find spaces in their city to practice their craft. Check out the listings below to see if any suit your needs. Register for an account and sign in to list your own space.</p>
+                        </div>
+
                     </div>
                     <div>
                         <Section list className='ListingsListPage'>

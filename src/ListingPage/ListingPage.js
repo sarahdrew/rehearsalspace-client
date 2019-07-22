@@ -29,11 +29,11 @@ export default class ListingPage extends Component {
         return <>
             <h2>{listing.location}</h2>
             <p>This space has {listing.size} room(s).</p>
-            <p>Description of the space:
+            <p><b>Description of the space:</b>
                 <ListingDescription listing={listing} />
 
             </p>
-            <p>Amenities of the space: {listing.amenities}</p>
+            <p> <b>Amenities of the space: </b>{listing.amenities}</p>
 
         </>
 
@@ -54,7 +54,10 @@ export default class ListingPage extends Component {
             content = this.renderListing()
         }
         return (
-            <Section className='ListingPage'> {content} </Section>)
+            <div className="listing-page">
+                <Section className='ListingPage'> {content} </Section>
+            </div>
+        )
     }
 
 

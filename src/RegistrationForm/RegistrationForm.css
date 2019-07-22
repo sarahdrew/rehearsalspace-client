@@ -1,0 +1,29 @@
+.icon-image img {
+    margin-left: 60px;
+    margin-top: 92px;
+    width: 50%;
+    flex: 1;
+}
+
+.total-registration-form{    
+    display: flex;
+    align-items: center;
+   
+    
+
+}
+
+form.RegistrationForm {
+    flex: 1;
+    padding: 20px;
+   
+
+   
+}
+form input{
+    width: 100%;
+    padding: 5px;
+    margin: 0px;
+
+}
+

@@ -1,3 +1,51 @@
 *{
-    padding: 3px;
+    padding: 1px;
+    
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    background: #E9E5FE;
+}
+
+.explanation{
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    background-image: url('./background-image.png');
+    background-size: 100% 100%;
+   color:  #e9e5fe;
+}
+
+.explanation-wrapper{
+    background-color:  rgba(255,255,255,0.25);
+}
+
+
+button {
+    padding: 10px 25px;
+    background-color: #6e5afb;
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    text-align: center;
+
+}
+
+button:hover{
+    background-color: #3e51b5
+}
+.background{
+    height: 25px;
+    width: 50%;
+      
+}
+
+.field{
+    padding: 15px;
+}
+.amenities-list{
+    vertical-align: middle;
 }
