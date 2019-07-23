@@ -19,9 +19,6 @@ export default class ListingPage extends Component {
             .catch(error => console.error(error))
     }
 
-    // componentWillUnmount() {
-    //     this.context.clearListing()
-    // }
 
     renderListing() {
         const { listing } = this.context
@@ -43,11 +40,6 @@ export default class ListingPage extends Component {
         const { listing } = this.context
 
         let content
-        // if (error) {
-        //     content = (error.error === `Listing doesn't exist`)
-        //         ? <p> Listing not found</p>
-        //         : <p>There was an error </p>
-        // } 
         if (listing === undefined) {
             content = <div className='loading' />
         } else {

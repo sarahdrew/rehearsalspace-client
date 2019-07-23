@@ -81,6 +81,7 @@ export default class RegistrationForm extends Component {
               <label htmlFor='RegistrationForm__password'>
                 Password <Required />
               </label>
+              <p>Must be at least 8 characters long, contain a special character, one upper case letter and one lower case letter.</p>
               <Input
                 name='password'
                 type='password'

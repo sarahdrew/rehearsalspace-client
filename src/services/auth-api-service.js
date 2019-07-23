@@ -32,17 +32,17 @@ const AuthApiService = {
             )
             .then(res => {
 
-                console.log(res.authToken)
+                //console.log(res.authToken)
                 TokenService.saveAuthToken(res.authToken)
 
                 // TokenService.queueCallbackBeforeExpiry(() => {
                 //     AuthApiService.postRefreshToken()
                 // })
-                console.log(`this is response in postLogin after `, res)
+                //  console.log(`this is response in postLogin after `, res)
                 return res
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
             })
     },
     postRefreshToken() {
@@ -66,7 +66,7 @@ const AuthApiService = {
                 return res
             })
             .catch(err => {
-                console.log('refresh token request error')
+                //  console.log('refresh token request error')
                 console.error(err)
             })
     },

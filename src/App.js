@@ -7,9 +7,7 @@ import Listings from "./Listings/Listings";
 import RegistrationForm from './RegistrationForm/RegistrationForm';
 import Reserve from './Reserve/Reserve';
 import SignIn from './SignIn/SignIn';
-import config from "./config";
 import ListingPage from './ListingPage/ListingPage'
-//import ListingListItem from './ListingListItem/ListingListItem'
 import ListingContext from './contexts/ListingContext';
 import BookedListing from './BookedListing/BookedListing';
 import SignedIn from './SignedIn/SignedIn'
@@ -32,14 +30,6 @@ export default class App extends Component {
     }
   }
 
-
-  bookedListing(event) {
-    //console.log(`booked it was clicked, yeehaw mama!`)
-    event.preventDefault();
-    // console.log(`this.props in Listing List Item`, this.props)
-    this.props.setState({ booked: true })
-    this.props.history.push(`/booked-listing/`)
-  }
 
   handleDeleteListing = listingId => {
     this.setState({

@@ -35,14 +35,14 @@ export default class CreateListing extends Component {
 
 
     addListing = listing => {
-        console.log(listing)
+
         this.setState({
             listings: [...this.state.listing, listing]
         });
     };
 
     handleSubmit = event => {
-        console.log(`handling the submit`)
+
         event.preventDefault();
         const listing = {
             location: event.target["location"].value,

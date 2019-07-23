@@ -16,7 +16,6 @@
 .total-listing-item{
     outline: 6px outset #511bb8;
     outline-offset: -3px;
-    /* border-radius: 2px; */
     padding: 10px;
     margin: 10px;
 }

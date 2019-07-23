@@ -13,8 +13,6 @@ export default class LoginForm extends Component {
     handleSubmitBasicAuth = ev => {
         ev.preventDefault()
         const { user_name, password } = ev.target
-        console.log(`handlesubmitbasicauth reached past ev.preventDefault`)
-
         // TokenService.saveAuthToken(TokenService.makeBasicAuthToken(user_name.value, password.value))
 
         AuthApiService.postLogin({
@@ -23,7 +21,6 @@ export default class LoginForm extends Component {
         })
             .then(user => {
 
-                console.log(`got to the then in handleSubmitBasicAuth`);
                 user_name.value = ''
                 password.value = ''
                 this.props.onSigninSuccess()

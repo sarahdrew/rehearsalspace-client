@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ListingContext from '../contexts/ListingContext';
 import ListingApiService from '../services/listing-api-service';
 import { Section } from '../Utils/Utils';
-// import ListingPage from '../ListingPage/ListingPage'
 import LoadingPage from '../LoadingPage/LoadingPage';
 import ListingListItem from '../ListingListItem/ListingListItem'
 import './Listings.css'
