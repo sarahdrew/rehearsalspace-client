@@ -25,7 +25,9 @@ export default class RegistrationForm extends Component {
         user_name.value = ''
         password.value = ''
         this.props.onRegistrationSuccess()
+        this.props.history.push(`/sign-in`)
       })
+
       .catch(res => {
         this.setState({ error: res.error })
       })
