@@ -59,7 +59,10 @@ export default class Listings extends Component {
                             <h3>Find a space in your city to use for rehearsal!</h3>
                             <p>RehearsalSpace is a site for independent performers to find spaces in their city to practice their craft. Check out the listings below to see if any suit your needs. Register for an account and sign in to list your own space.</p>
                         </div>
-
+                        <p>For full functionality, try using with demo version!
+                            username: demo
+                            password: Demo123!
+                </p>
                     </div>
                     <div>
                         <Section list className='ListingsListPage'>

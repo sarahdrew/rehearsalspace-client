@@ -42,32 +42,33 @@ export default class App extends Component {
 
     return (
       <div className="App" >
+        <html lang="en">
 
-        <ListingContext.Provider value={this.state} >
-          <head>
-            <style>
-              @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+          <ListingContext.Provider value={this.state} >
+            <head>
+              <style>
+                @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 </style>
 
-          </head>
-          <nav><Nav /></nav>
-          <main className='App'>
+            </head>
+            <nav><Nav /></nav>
+            <main className='App'>
 
-            <Route exact path='/' component={Listings} />
-            <Route exact path='/listings' component={Listings} />
-            <Route path={'/listings/:listingId'} component={ListingPage} />
-            <Route path='/create-listing' component={CreateListing} />
-            <Route path='/registration-form' component={RegistrationForm} />
-            <Route path='/reserve' component={Reserve} />
-            <Route path='/sign-in' component={SignIn} />
-            <Route path='/booked-listing' component={BookedListing} />
-            <Route path='/signed-in' component={SignedIn} />
+              <Route exact path='/' component={Listings} />
+              <Route exact path='/listings' component={Listings} />
+              <Route path={'/listings/:listingId'} component={ListingPage} />
+              <Route path='/create-listing' component={CreateListing} />
+              <Route path='/registration-form' component={RegistrationForm} />
+              <Route path='/reserve' component={Reserve} />
+              <Route path='/sign-in' component={SignIn} />
+              <Route path='/booked-listing' component={BookedListing} />
+              <Route path='/signed-in' component={SignedIn} />
 
 
 
-          </main>
-        </ListingContext.Provider>
-
+            </main>
+          </ListingContext.Provider>
+        </html>
       </div>
     )
 
