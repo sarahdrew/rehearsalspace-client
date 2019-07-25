@@ -31,6 +31,7 @@ button {
     cursor: pointer;
     border-radius: 2px;
     text-align: center;
+    margin: 10px;
 
 }
 
@@ -48,4 +49,18 @@ button:hover{
 }
 .amenities-list{
     vertical-align: middle;
+}
+
+.demo-explanation{
+    outline: 5px outset #6e5afb;
+    outline-offset: -17px;
+    margin: 10px;
+    padding: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+form {
+    padding: 5px;
+    margin: 10px;
 }

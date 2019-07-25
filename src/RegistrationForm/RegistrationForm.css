@@ -5,6 +5,12 @@
     flex: 1;
 }
 
+.icon-image{
+    flex: 1;
+    margin-bottom: 10%;
+}
+
+
 .total-registration-form{    
     display: flex;
     align-items: center;
@@ -27,3 +33,6 @@ form input{
 
 }
 
+.headline{
+    text-align: center;
+}
