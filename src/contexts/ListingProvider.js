@@ -4,15 +4,11 @@ import ListingContext from './ListingContext'
 export class ListingProvider extends Component {
 
     state = {
-        // listing: nullListing,
+
         error: null,
     };
 
-    // const nullListing = {
-    //     location: '',
-    //     size: '',
-    //     description: ''
-    // }
+
     setError = error => {
         console.error(error)
         this.setState({ error })
@@ -23,16 +19,9 @@ export class ListingProvider extends Component {
     }
 
     setListing = listing => {
-        // console.log(`testing listing setListing `)
         this.setState({ listing })
     }
 
-
-
-    // clearListing = () => {
-    //     this.setListing(nullListing)
-
-    // }
 
 
     render() {

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-//import { NiceDate } from '../Utils/Utils'
 import ListingContext from '../contexts/ListingContext';
 
 export default class ListingistItem extends Component {
@@ -35,18 +34,6 @@ export default class ListingistItem extends Component {
         )
     }
 }
-
-
-
-// function ListingDate({ listing }) {
-//     return (
-//         <span className='ListingListItem__date'>
-//             <NiceDate
-//                 date={listing.date_created}
-//             />
-//         </span>
-//     )
-// }
 
 
 
