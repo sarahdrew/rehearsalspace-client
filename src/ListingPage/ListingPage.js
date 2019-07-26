@@ -58,8 +58,8 @@ export default class ListingPage extends Component {
 
 function ListingDescription({ listing }) {
     return (
-        <p className='ListingPage__description'>
+        <span className='ListingPage__description'>
             {listing.description}
-        </p>
+        </span>
     )
 }

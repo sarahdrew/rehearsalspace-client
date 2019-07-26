@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import RegistrationForm from '../../RegistrationForm/RegistrationForm';
+import RegistrationForm from "../RegistrationForm/RegistrationForm";
 
 describe("RegistrationForm class component", () => {
     it("renders without crashing", () => {

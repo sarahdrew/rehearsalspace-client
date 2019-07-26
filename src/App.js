@@ -38,16 +38,9 @@ export default class App extends Component {
 
 
     return (
-      <div className="App" >
-        <html lang="en">
-
+      <>
+        <div className="App" >
           <ListingContext.Provider value={this.state} >
-            <head>
-              <style>
-                @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-</style>
-
-            </head>
             <nav><Nav /></nav>
             <main className='App'>
 
@@ -63,8 +56,9 @@ export default class App extends Component {
 
             </main>
           </ListingContext.Provider>
-        </html>
-      </div>
+
+        </div>
+      </>
     )
 
 

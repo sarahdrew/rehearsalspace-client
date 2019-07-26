@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import SignedIn from '../SignedIn/SignedIn';
+import LoadingPage from '../LoadingPage/LoadingPage';
 
-describe("SignedIn class component", () => {
+
+describe("LoadingPage class component", () => {
     it("renders without crashing", () => {
         const div = document.createElement('div');
         ReactDOM.render(
-            <BrowserRouter>
-                <SignedIn />
-            </BrowserRouter>,
+
+            <LoadingPage />,
+
             div
         );
         ReactDOM.unmountComponentAtNode(div);

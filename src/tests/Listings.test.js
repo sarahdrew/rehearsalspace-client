@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import SignedIn from '../SignedIn/SignedIn';
+import Listings from "../Listings/Listings";
+import ListingContext from '../contexts/ListingContext';
 
-describe("SignedIn class component", () => {
+describe("Listings class component", () => {
     it("renders without crashing", () => {
         const div = document.createElement('div');
+
         ReactDOM.render(
-            <BrowserRouter>
-                <SignedIn />
-            </BrowserRouter>,
+
+            <ListingContext.Provider value={{ error: "" }}><Listings /></ListingContext.Provider>,
             div
         );
         ReactDOM.unmountComponentAtNode(div);

@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import SignedIn from '../SignedIn/SignedIn';
+import Nav from '../Nav/Nav';
 
-describe("SignedIn class component", () => {
+describe("Nav class component", () => {
     it("renders without crashing", () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <BrowserRouter>
-                <SignedIn />
+                <Nav />
             </BrowserRouter>,
             div
         );
